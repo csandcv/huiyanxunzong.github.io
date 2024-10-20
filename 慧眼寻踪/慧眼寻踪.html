@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8" />
+    <title>慧眼寻踪 - 行人重识别系统</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-image: url('图片/登入页面.png'); /* 替换为你的背景图片URL */
+            background-size: cover;
+            background-position: center;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: flex-end; /* 保持容器靠右 */
+            align-items: center;
+            height: 100vh;
+            color: #fff;
+        }
+        .container {
+            background-color: rgba(255, 255, 255, 0.8); /* 半透明背景 */
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            width: 300px;
+            text-align: center;
+            margin-left: auto; /* 自动左边距，使容器从右侧向中心移动 */
+            margin-right: 100px; /* 右侧边距，调整登录框与屏幕边缘的距离 */
+        }
+        h2 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        input[type="text"],
+        input[type="password"] {
+            margin-bottom: 10px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        button {
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+            margin-bottom: 10px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .register-link {
+            color: #007bff;
+            margin-bottom: 10px;
+        }
+        .register-link a {
+            color: #2f6d25; /* 链接颜色 */
+            text-decoration: none;
+        }
+        .register-link a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>慧眼寻踪 - 登录</h2>
+        <form id="loginForm" action="/login" method="post">
+            <input type="text" id="username" placeholder="账号" name="username" required>
+            <input type="password" id="password" placeholder="密码" name="password" required>
+            <button type="submit">登录</button>
+        </form>
+        <div class="register-link">
+            没有账号？<a href="./注册账号.html">注册</a>
+        </div>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var form = document.getElementById('loginForm');
+            form.addEventListener('submit', function(event) {
+                event.preventDefault(); // 阻止表单的默认提交行为
+                var username = document.getElementById('username').value;
+                var password = document.getElementById('password').value;
+                // 预设的账号和密码
+                var presetUsername = 'admin';
+                var presetPassword = '123456';
+                if (username === presetUsername && password === presetPassword) {
+                    // 如果账号和密码匹配，跳转到指定页面
+                    //window.location.href = './首页.html'; // 替换为实际的页面URL
+                    window.location.href = 'http://127.0.0.1:8080'; 
+                } else {
+                    // 如果账号或密码错误，显示错误消息
+                    alert('账号或密码错误！');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

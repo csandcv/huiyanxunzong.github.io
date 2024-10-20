@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8" />
+    <title>慧眼寻踪 - 注册账号</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-image: url('图片/登入页面.png'); /* 替换为你的背景图片URL */
+            background-size: cover;
+            background-position: center;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center; /* 居中对齐容器 */
+            align-items: center;
+            height: 100vh;
+            color: #fff;
+        }
+        .container {
+            background-color: rgba(255, 255, 255, 0.8); /* 半透明背景 */
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            width: 300px;
+            text-align: center;
+            margin-left: auto; /* 自动左边距，使容器从右侧向中心移动 */
+            margin-right: 100px; /* 右侧边距，调整登录框与屏幕边缘的距离 */
+        }
+        h2 {
+            color: #333;
+            margin-bottom: 30px;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        label {
+            margin-bottom: 5px;
+            color: #555;
+        }
+        input[type="text"],
+        input[type="password"],
+        input[type="email"] {
+            margin-bottom: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+        button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .login-link {
+            margin-top: 20px;
+            color: #007bff;
+            text-align: center;
+        }
+        .login-link a {
+            color: #007bff; /* 链接颜色 */
+            text-decoration: none;
+        }
+        .login-link a:hover {
+            text-decoration: underline;
+        }
+        .message {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            text-align: center;
+            margin-top: 20px;
+            display: none; /* 初始隐藏消息 */
+        }
+    </style>
+</head>
+<body>
+    <script>
+        // 当文档加载完成后执行
+        document.addEventListener('DOMContentLoaded', function() {
+            // 获取表单元素
+            var form = document.querySelector('form');
+            // 为表单添加提交事件监听器
+            form.addEventListener('submit', function(event) {
+                // 阻止表单的默认提交行为
+                event.preventDefault();
+                // 这里可以添加Ajax代码来提交表单数据到服务器
+                // ...
+                // 假设注册成功，跳转到登录页面
+                window.location.href = './慧眼寻踪.html'; // 替换为实际的登录页面URL
+            });
+        });
+    </script>
+    <div class="container">
+        <h2>注册账号</h2>
+        <form action="/register" method="post">
+            <label for="username">用户名</label>
+            <input type="text" id="username" name="username" placeholder="请输入用户名" required>
+
+            <label for="password">密码</label>
+            <input type="password" id="password" name="password" placeholder="请输入密码" required>
+
+            <label for="confirm_password">确认密码</label>
+            <input type="password" id="confirm_password" name="confirm_password" placeholder="请再次输入密码" required>
+
+            <label for="email">邮箱</label>
+            <input type="email" id="email" name="email" placeholder="请输入邮箱地址" required>
+
+            <button type="submit">注册</button>
+        </form>
+        <div class="message" id="message">注册成功，请登录！</div>
+        <div class="login-link">
+            已有账号？<a href="./慧眼寻踪.html">登录</a>
+        </div>
+    </div>
+    <!---<script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var form = document.getElementById('registerForm');
+            var message = document.getElementById('message');
+            form.addEventListener('submit', function(event) {
+                event.preventDefault();
+                // 显示注册成功消息
+                message.style.display = 'block';
+                // 假设注册成功，3秒后跳转到登录页面
+                setTimeout(function() {
+                    window.location.href = "./慧眼寻踪.html"; // 替换为实际的登录页面URL
+                }, 3000);
+            });
+        });
+    </script> --->
+</body>
+</html>
